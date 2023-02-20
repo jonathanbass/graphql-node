@@ -1,0 +1,294 @@
+{
+	"info": {
+		"_postman_id": "7e693dd5-5636-485e-809e-1261247ddfe4",
+		"name": "GraphQL",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "495721"
+	},
+	"item": [
+		{
+			"name": "Movies",
+			"item": [
+				{
+					"name": ".NET",
+					"item": [
+						{
+							"name": "GetAllMovies",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "graphql",
+									"graphql": {
+										"query": "query {\r\n  movies {\r\n    title\r\n    year\r\n    runtime\r\n    genre\r\n    cast\r\n  }\r\n}",
+										"variables": ""
+									}
+								},
+								"url": {
+									"raw": "https://localhost:7098/graphql/",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "7098",
+									"path": [
+										"graphql",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetMovieById",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "graphql",
+									"graphql": {
+										"query": "query ($id: String!){\r\n  movies(where: {id: {eq: $id}}){\r\n    title\r\n    year\r\n  }\r\n}",
+										"variables": "{\r\n    \"id\": \"63c952b305c3ba46dfb79703\"\r\n}"
+									}
+								},
+								"url": {
+									"raw": "https://localhost:7098/graphql/",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "7098",
+									"path": [
+										"graphql",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DeleteMovie",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "graphql",
+									"graphql": {
+										"query": "mutation($id:String!){\r\n    deleteMovie(id:$id)\r\n}",
+										"variables": "{\r\n    \"id\": \"63c952b305c3ba46dfb79703\"\r\n}"
+									}
+								},
+								"url": {
+									"raw": "https://localhost:7098/graphql/",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "7098",
+									"path": [
+										"graphql",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CreateMovie",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "graphql",
+									"graphql": {
+										"query": "mutation($newMovie:MovieInput!){\r\n    createMovie(movie:$newMovie) {\r\n        id\r\n    }\r\n}",
+										"variables": "{\r\n    \"newMovie\": {\r\n        \"title\": \"Jungie Movie Poops 2\",\r\n        \"year\": 1979,\r\n        \"runtime\": 520,\r\n        \"genre\": [\"Science Fiction\", \"Fantasy\"],\r\n        \"cast\": [\"Jungie\", \"Poopie\"],\r\n        \"version\": 1\r\n    }\r\n}"
+									}
+								},
+								"url": {
+									"raw": "https://localhost:7098/graphql/",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "7098",
+									"path": [
+										"graphql",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "UpdateMovie",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "graphql",
+									"graphql": {
+										"query": "mutation($updateMovie:MovieInput!){\r\n    updateMovie(movie:$updateMovie) {\r\n        id\r\n        title\r\n        runtime\r\n        year\r\n    }\r\n}",
+										"variables": "{\r\n  \"updateMovie\": {\r\n    \"id\": \"63ef76ad9469a675bae55e49\",\r\n    \"title\": \"Strawberry flavored Sugar cake\",\r\n    \"runtime\": 85,\r\n    \"year\": 2027,\r\n    \"genre\": [],\r\n    \"cast\": [],\r\n    \"version\": 1\r\n  }\r\n}"
+									}
+								},
+								"url": {
+									"raw": "https://localhost:7098/graphql/",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "7098",
+									"path": [
+										"graphql",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "nodeJS",
+					"item": [
+						{
+							"name": "GetAllMovies",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "graphql",
+									"graphql": {
+										"query": "query {\r\n  getMovies {\r\n    id\r\n    title\r\n    year\r\n    runtime\r\n    genre\r\n    cast\r\n  }\r\n}",
+										"variables": ""
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/graphql",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"graphql"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetMovieById",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "graphql",
+									"graphql": {
+										"query": "query ($id: String!){\r\n  getMovie(id: $id){\r\n    title\r\n    year\r\n  }\r\n}",
+										"variables": "{\r\n    \"id\": \"63ef75974c06ad7fee300d49\"\r\n}"
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/graphql/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"graphql",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DeleteMovie",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "graphql",
+									"graphql": {
+										"query": "mutation($id:String!){\r\n    deleteMovie(id:$id)\r\n}",
+										"variables": "{\r\n    \"id\": \"63ef75974c06ad7fee300d49\"\r\n}"
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/graphql/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"graphql",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CreateMovie",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "graphql",
+									"graphql": {
+										"query": "mutation($newMovie:MovieInput!){\r\n    createMovie(movie:$newMovie)\r\n}",
+										"variables": "{\r\n    \"newMovie\": {\r\n        \"title\": \"Jungie Movie Poops: The Ultimate Poop\",\r\n        \"year\": 1979,\r\n        \"runtime\": 520,\r\n        \"genre\": [\"Science Fiction\", \"Fantasy\"],\r\n        \"cast\": [\"Jungie\", \"Poopie\"]\r\n    }\r\n}"
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/graphql/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"graphql",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "UpdateMovie",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "graphql",
+									"graphql": {
+										"query": "mutation($updateMovie:MovieInput!){\r\n    updateMovie(movie:$updateMovie) {\r\n        id\r\n        title\r\n        runtime\r\n        year\r\n    }\r\n}",
+										"variables": "{\r\n  \"updateMovie\": {\r\n    \"id\": \"63ef76ad9469a675bae55e49\",\r\n    \"title\": \"Strawberry flavored Sugar cake The Return2\",\r\n    \"runtime\": 85,\r\n    \"year\": 2027,\r\n    \"genre\": [],\r\n    \"cast\": []\r\n  }\r\n}"
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/graphql/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"graphql",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
